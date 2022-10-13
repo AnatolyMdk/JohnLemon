@@ -9,6 +9,7 @@ public class Grid : MonoBehaviour
     public Vector3 sizeGrid;
     public Vector3 nodeSize;
     public LayerMask layer;
+    public float sphereColliderSize;
 
     private void OnDrawGizmos()
     {
@@ -28,7 +29,8 @@ public class Grid : MonoBehaviour
                                                  centerGrid.y - (sizeGrid.y / 2) + nodeSize.y * j + nodeSize.y / 2,
                                                  centerGrid.z - (sizeGrid.z / 2) + nodeSize.z * k + nodeSize.z / 2);
 
-                    Gizmos.color = Physics.OverlapSphere(nodeCenter, nodeSize.x / 2, layer) == null ? Color.red : Color.blue;
+                    Gizmos.color = Physics.OverlapSphere(nodeCenter, sphereColliderSize, layer).Length == 0 ? Color.white : Color.red;
+                    
                     Gizmos.DrawWireCube(nodeCenter, nodeSize);
                 }
             }
