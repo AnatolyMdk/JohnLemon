@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Dijkstra : MonoBehaviour
 {
-
     public Vector3 CenterGrid;
     public Vector3 SizeGrid;
     public Vector3 SizeNode;
@@ -136,7 +135,7 @@ public class Dijkstra : MonoBehaviour
                     {
                         for (int plusJ = -1; plusJ <= 1; plusJ++)
                         {
-                            if (plusI == 0 && plusJ == 0) continue;
+                            if (Math.Abs(plusI) == Math.Abs(plusJ)) continue;
 
                             int newI = i + plusI;
                             int newJ = j + plusJ;
@@ -171,7 +170,7 @@ public class Dijkstra : MonoBehaviour
             }
             if (path != null)
             {
-                Gizmos.color = Color.black;
+                Gizmos.color = Color.red;
                 foreach (Node n in path)
                 {
                     Gizmos.DrawCube(n.position, SizeNode / 4);
