@@ -124,27 +124,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 1c17d1473df9595419b9463f0b7cdec9, type: 2}
---- !u!1 &35514366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7748028635817376625, guid: 39d0626ce76d1884da050e0e509a5540,
-    type: 3}
-  m_PrefabInstance: {fileID: 1513577154286143051}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &35514368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35514366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3508df21a0eb644bb220f0e02c7db8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2008973354732098957}
-  gameEnding: {fileID: 5642716984738007026}
-  gameTime: {fileID: 704055793}
 --- !u!1001 &50719414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,6 +131,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 840455984}
     m_Modifications:
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2008973354732098957}
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+      propertyPath: gameTime
+      value: 
+      objectReference: {fileID: 704055793}
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+      propertyPath: gameEnding
+      value: 
+      objectReference: {fileID: 5642716984738007026}
     - target: {fileID: 4078855156467671687, guid: 39d0626ce76d1884da050e0e509a5540,
         type: 3}
       propertyPath: player
@@ -1847,6 +1838,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 840455984}
     m_Modifications:
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2008973354732098957}
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+      propertyPath: gameTime
+      value: 
+      objectReference: {fileID: 704055793}
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+      propertyPath: gameEnding
+      value: 
+      objectReference: {fileID: 5642716984738007026}
     - target: {fileID: 4078855156467671687, guid: 39d0626ce76d1884da050e0e509a5540,
         type: 3}
       propertyPath: player
@@ -2695,13 +2698,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 840455984}
     m_Modifications:
-    - target: {fileID: 4078855156467671687, guid: 39d0626ce76d1884da050e0e509a5540,
-        type: 3}
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2008973354732098957}
-    - target: {fileID: 4078855156467671687, guid: 39d0626ce76d1884da050e0e509a5540,
-        type: 3}
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+      propertyPath: gameTime
+      value: 
+      objectReference: {fileID: 704055793}
+    - target: {fileID: 35514368, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
       propertyPath: gameEnding
       value: 
       objectReference: {fileID: 5642716984738007026}
@@ -2765,8 +2770,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gargoyle
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4078855156467671687, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d0626ce76d1884da050e0e509a5540, type: 3}
 --- !u!4 &2008973354732098957 stripped
 Transform:
