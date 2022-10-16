@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class NodeGrid : MonoBehaviour
 {
     public Vector3 centerGrid;
     public Vector3 sizeGrid;
@@ -28,22 +28,10 @@ public class Grid : MonoBehaviour
                     Vector3 nodeCenter = new Vector3(centerGrid.x - (sizeGrid.x / 2) + nodeSize.x * i + nodeSize.x / 2,
                                                  centerGrid.y - (sizeGrid.y / 2) + nodeSize.y * j + nodeSize.y / 2,
                                                  centerGrid.z - (sizeGrid.z / 2) + nodeSize.z * k + nodeSize.z / 2);
-
                     Gizmos.color = Physics.OverlapSphere(nodeCenter, sphereColliderSize, layer).Length == 0 ? Color.white : Color.red;
-                    
-                    Gizmos.DrawWireCube(nodeCenter, nodeSize);
+                    Gizmos.DrawWireCube(nodeCenter, nodeSize - new Vector3(0.2f, 0.2f, 0.2f));
                 }
             }
         }
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
     }
 }
