@@ -6,6 +6,7 @@ public class ObserverGargoyle : MonoBehaviour
 {
     public Transform player;
     public GameEnding gameEnding;
+    public Timer gameTime;
 
     bool m_IsPlayerInRange;
 
@@ -37,7 +38,8 @@ public class ObserverGargoyle : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player)
                 {
-                    gameEnding.CaughtPlayer();
+                    gameTime.time -= 15f;
+                    m_IsPlayerInRange = false;
                 }
             }
         }
