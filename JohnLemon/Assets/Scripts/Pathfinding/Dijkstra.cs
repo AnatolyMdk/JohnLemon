@@ -18,14 +18,48 @@ public class Dijkstra : MonoBehaviour
     #region DEBUG
     public Transform initialPos;
     public Transform finalPos;
-    public bool done;
     public bool algorithm;
     private List<Node> path;
     #endregion
 
     private void Start()
     {
+        nNodesX = Convert.ToInt32(SizeGrid.x / SizeNode.x);
+        nNodesZ = Convert.ToInt32(SizeGrid.z / SizeNode.z);
+        grid = new Node[nNodesX, nNodesZ];
+        for (int i = 0; i < nNodesX; i++)
+        {
+            for (int j = 0; j < nNodesZ; j++)
+            {
+                float posX = CenterGrid.x - SizeGrid.x / 2 + i * SizeNode.x + SizeNode.x / 2;
+                float posZ = CenterGrid.z - SizeGrid.z / 2 + j * SizeNode.z + SizeNode.z / 2;
+                Vector3 pos = new Vector3(posX, CenterGrid.y, posZ);
+                bool walkable = Physics.OverlapSphere(pos, SphereRadiusWallDetector, WallLayer).Length == 0;
+                grid[i, j] = new Node(pos, walkable);
+            }
+        }
 
+        for (int i = 0; i < grid.GetLength(0); i++)
+        {
+            for (int j = 0; j < grid.GetLength(1); j++)
+            {
+                for (int plusI = -1; plusI <= 1; plusI++)
+                {
+                    for (int plusJ = -1; plusJ <= 1; plusJ++)
+                    {
+                        if (Math.Abs(plusI) == Math.Abs(plusJ)) continue;
+
+                        int newI = i + plusI;
+                        int newJ = j + plusJ;
+                        if (!OutOfBounds(newI, newJ))
+                        {
+                            grid[i, j].AddNeighbour(grid[newI, newJ]);
+                        }
+                    }
+                }
+                Debug.Log("Node [" + i + ", " + j + "] have " + grid[i, j].neighbours.Count + " neighbours.");
+            }
+        }
     }
 
 
@@ -62,7 +96,8 @@ public class Dijkstra : MonoBehaviour
                 }
             }
         }
-        return RetracePath(currentNode);
+        path = RetracePath(currentNode);
+        return path;
     }
 
     private List<Node> RetracePath(Node n)
@@ -109,49 +144,6 @@ public class Dijkstra : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        #region START
-
-        if (!done)
-        {
-            nNodesX = Convert.ToInt32(SizeGrid.x / SizeNode.x);
-            nNodesZ = Convert.ToInt32(SizeGrid.z / SizeNode.z);
-            grid = new Node[nNodesX, nNodesZ];
-            for (int i = 0; i < nNodesX; i++)
-            {
-                for (int j = 0; j < nNodesZ; j++)
-                {
-                    float posX = CenterGrid.x - SizeGrid.x / 2 + i * SizeNode.x + SizeNode.x / 2;
-                    float posZ = CenterGrid.z - SizeGrid.z / 2 + j * SizeNode.z + SizeNode.z / 2;
-                    Vector3 pos = new Vector3(posX, CenterGrid.y, posZ);
-                    bool walkable = Physics.OverlapSphere(pos, SphereRadiusWallDetector, WallLayer).Length == 0;
-                    grid[i, j] = new Node(pos, walkable);
-                }
-            }
-
-            for (int i = 0; i < grid.GetLength(0); i++)
-            {
-                for (int j = 0; j < grid.GetLength(1); j++)
-                {
-                    for (int plusI = -1; plusI <= 1; plusI++)
-                    {
-                        for (int plusJ = -1; plusJ <= 1; plusJ++)
-                        {
-                            if (plusI == 0 && plusJ == 0) continue;
-
-                            int newI = i + plusI;
-                            int newJ = j + plusJ;
-                            if (!OutOfBounds(newI, newJ))
-                            {
-                                grid[i, j].AddNeighbour(grid[newI, newJ]);
-                            }
-                        }
-                    }
-                    Debug.Log("Node [" + i + ", " + j + "] have " + grid[i, j].neighbours.Count + " neighbours.");
-                }
-            }
-            done = true;
-        }
-        #endregion
 
         if (algorithm)
         {
@@ -171,7 +163,7 @@ public class Dijkstra : MonoBehaviour
             }
             if (path != null)
             {
-                Gizmos.color = Color.black;
+                Gizmos.color = Color.red;
                 foreach (Node n in path)
                 {
                     Gizmos.DrawCube(n.position, SizeNode / 4);

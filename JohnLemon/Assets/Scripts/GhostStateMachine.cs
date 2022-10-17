@@ -16,8 +16,13 @@ public class GhostStateMachine : MovingEntity
     Vector3 towardsTarget;
     float moveRadius = 5f;
 
+    public Dijkstra Pathfinder;
+
+
     Transform currentTarget;
-    float maxChaseDistance = 5f;
+    public float maxChaseDistance = 10f;
+    float distanceToChange = 1f;
+    
 
     void RecalculateTargetPosition()
     {
@@ -74,13 +79,27 @@ public class GhostStateMachine : MovingEntity
 
     IEnumerator Chase ()
     {
-        while( currentState == state.Chase)
-        {
-            towardsTarget = currentTarget.position - transform.position;
-            MoveTowards(towardsTarget);
+        List<Node> path = Pathfinder.Algorithm(transform.position, currentTarget.position);
+        Node current = path[1];
+        // posicion del jugador al llamar a Chase()
+        Vector3 prevCurrentTarget = currentTarget.position;
 
-            if (towardsTarget.magnitude > maxChaseDistance)
+        while (currentState == state.Chase)
+        {
+            if (currentTarget.position != prevCurrentTarget)
+                path = Pathfinder.Algorithm(transform.position, currentTarget.position);
+            towardsTarget = current.position - transform.position;
+            MoveTowards(towardsTarget);
+            // si la distancia al objetivo es menor que la maxima establecida
+            if (towardsTarget.magnitude < distanceToChange && path.Count > 1)
+            {
+                current = path[1];
+                path.RemoveAt(0);
+            }
+            
+            if((currentTarget.position - transform.position).magnitude > maxChaseDistance)
                 ChangeState(state.Normal);
+            prevCurrentTarget = currentTarget.position;
             yield return 0;
         }
     }
@@ -92,5 +111,10 @@ public class GhostStateMachine : MovingEntity
             currentTarget = other.transform;
             ChangeState(state.Chase);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, maxChaseDistance);
     }
 }
