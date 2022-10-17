@@ -171,7 +171,7 @@ public class Dijkstra : MonoBehaviour
             }
             if (path != null)
             {
-                Gizmos.color = Color.black;
+                Gizmos.color = Color.red;
                 foreach (Node n in path)
                 {
                     Gizmos.DrawCube(n.position, SizeNode / 4);
