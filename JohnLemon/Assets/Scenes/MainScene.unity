@@ -251,56 +251,6 @@ Transform:
   m_Father: {fileID: 894613339}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &202244303
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 202244304}
-  - component: {fileID: 202244305}
-  m_Layer: 0
-  m_Name: Grid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &202244304
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202244303}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2523565, y: -4.7696686, z: 1.624506}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &202244305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202244303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aff16f74ee143648a09153f52a75580, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerGrid: {x: -1.6, y: 0.5, z: 7.2}
-  sizeGrid: {x: 64.9, y: 1, z: 38.6}
-  nodeSize: {x: 1, y: 1, z: 1}
-  layer:
-    serializedVersion: 2
-    m_Bits: 64
-  sphereColliderSize: 0.5
 --- !u!1 &206311976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1356,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &805581756
 GameObject:
@@ -1607,8 +1557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8887620e40cb154b954795b829359c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterGrid: {x: 0, y: 3.1, z: 0}
-  SizeGrid: {x: 20, y: 0, z: 20}
+  CenterGrid: {x: -1.6, y: 0.5, z: 7.2}
+  SizeGrid: {x: 64.9, y: 1, z: 38.6}
   SizeNode: {x: 1, y: 1, z: 1}
   SphereRadiusWallDetector: 0
   WallLayer:
@@ -1617,7 +1567,7 @@ MonoBehaviour:
   initialPos: {fileID: 6925745739663848697}
   finalPos: {fileID: 2008973354732098957}
   done: 1
-  algorithm: 1
+  algorithm: 0
 --- !u!4 &817583148
 Transform:
   m_ObjectHideFlags: 0
@@ -1630,7 +1580,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840455983
 GameObject:
