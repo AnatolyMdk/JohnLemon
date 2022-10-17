@@ -76,11 +76,13 @@ public class GhostStateMachine : MovingEntity
     {
         while( currentState == state.Chase)
         {
+            /*
             towardsTarget = currentTarget.position - transform.position;
             MoveTowards(towardsTarget);
 
             if (towardsTarget.magnitude > maxChaseDistance)
                 ChangeState(state.Normal);
+            */
             yield return 0;
         }
     }
