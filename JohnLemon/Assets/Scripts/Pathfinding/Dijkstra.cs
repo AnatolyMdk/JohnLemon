@@ -142,15 +142,14 @@ public class Dijkstra : MonoBehaviour
     {
         return i < 0 || j < 0 || i >= grid.GetLength(0) || j >= grid.GetLength(1);
     }
+
     private void OnDrawGizmos()
     {
-
         if (algorithm)
         {
             path = Algorithm(initialPos.position, finalPos.position);
             algorithm = false;
         }
-
 
         if (grid != null)
         {
