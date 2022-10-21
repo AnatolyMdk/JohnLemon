@@ -12,6 +12,7 @@ public class Dijkstra : MonoBehaviour
     public float SphereRadiusWallDetector;
     public LayerMask WallLayer;
     public Node[,] grid;
+    public bool dontShowGizmos;
     private int nNodesX;
     private int nNodesZ;
 
@@ -57,7 +58,7 @@ public class Dijkstra : MonoBehaviour
                         }
                     }
                 }
-                Debug.Log("Node [" + i + ", " + j + "] have " + grid[i, j].neighbours.Count + " neighbours.");
+                // Debug.Log("Node [" + i + ", " + j + "] have " + grid[i, j].neighbours.Count + " neighbours.");
             }
         }
     }
@@ -145,6 +146,7 @@ public class Dijkstra : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (dontShowGizmos) return;
         if (algorithm)
         {
             path = Algorithm(initialPos.position, finalPos.position);

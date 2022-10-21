@@ -7,14 +7,20 @@ public class ObserverGargoyle : MonoBehaviour
     public Transform player;
     public GameEnding gameEnding;
     public Timer gameTime;
+    public GhostStateMachine[] ghostList;
 
     bool m_IsPlayerInRange;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform == player)
+        if (other.CompareTag("Player"))
         {
             m_IsPlayerInRange = true;
+
+            foreach (GhostStateMachine ghost in ghostList)
+            {
+                ghost.ChangeState(GhostStateMachine.state.ChaseIndiscriminate, player);
+            }
         }
     }
 
