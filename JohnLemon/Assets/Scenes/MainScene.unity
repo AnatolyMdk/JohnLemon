@@ -4535,6 +4535,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3674741052885819391, guid: 549c69af39b84624b8a053537c407def,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674741052885819391, guid: 549c69af39b84624b8a053537c407def,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674741052885819391, guid: 549c69af39b84624b8a053537c407def,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3674741053055677101, guid: 549c69af39b84624b8a053537c407def,
         type: 3}
       propertyPath: m_Layer
