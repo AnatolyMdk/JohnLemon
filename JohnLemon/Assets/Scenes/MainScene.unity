@@ -2883,7 +2883,7 @@ MonoBehaviour:
   WallLayer:
     serializedVersion: 2
     m_Bits: 64
-  dontShowGizmos: 0
+  dontShowGizmos: 1
   initialPos: {fileID: 6925745739663848697}
   finalPos: {fileID: 2008973354732098957}
   algorithm: 0
