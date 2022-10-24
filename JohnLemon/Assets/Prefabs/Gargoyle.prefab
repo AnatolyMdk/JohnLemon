@@ -246,6 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  gameEnding: {fileID: 0}
   gameTime: {fileID: 0}
-  ghostList: []
+  radiusNoise: 10
+  ghostMask:
+    serializedVersion: 2
+    m_Bits: 8
