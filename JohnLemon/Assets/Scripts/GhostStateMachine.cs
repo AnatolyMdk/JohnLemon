@@ -83,7 +83,7 @@ public class GhostStateMachine : MovingEntity
             if (towardsTarget.magnitude < 0.25f)
                 i++;
 
-            // Debug.DrawLine(transform.position, targetPosition, Color.green);
+            Debug.DrawLine(transform.position, targetPosition, Color.green);
             yield return 0;
         }
     }
@@ -127,7 +127,6 @@ public class GhostStateMachine : MovingEntity
         renderer.material = redGhost;
         List<Node> path = Pathfinder.Algorithm(transform.position, currentTarget.position);
         Node current = path[1];
-        // posicion del jugador al llamar a Chase()
         Vector3 prevCurrentTarget = currentTarget.position;
 
         while (currentState == state.Chase)
@@ -136,7 +135,7 @@ public class GhostStateMachine : MovingEntity
                 path = Pathfinder.Algorithm(transform.position, currentTarget.position);
             towardsTarget = current.position - transform.position;
             MoveTowards(towardsTarget);
-            // si la distancia al objetivo es menor que la maxima establecida
+
             if (towardsTarget.magnitude < distanceToChange && path.Count > 1)
             {
                 current = path[1];
@@ -156,7 +155,6 @@ public class GhostStateMachine : MovingEntity
         renderer.material = redGhost;
         List<Node> path = Pathfinder.Algorithm(transform.position, currentTarget.position);
         Node current = path[1];
-        // posicion del jugador al llamar a Chase()
         Vector3 prevCurrentTarget = currentTarget.position;
 
         while (currentState == state.ChaseIndiscriminate)
@@ -165,7 +163,7 @@ public class GhostStateMachine : MovingEntity
                 path = Pathfinder.Algorithm(transform.position, currentTarget.position);
             towardsTarget = current.position - transform.position;
             MoveTowards(towardsTarget);
-            // si la distancia al objetivo es menor que la maxima establecida
+
             if (towardsTarget.magnitude < distanceToChange && path.Count > 1)
             {
                 current = path[1];
