@@ -5,9 +5,9 @@ using UnityEngine;
 public class ObserverGargoyle : MonoBehaviour
 {
     public Transform player;
-    public GameEnding gameEnding;
     public Timer gameTime;
-    public GhostStateMachine[] ghostList;
+    public float radiusNoise;
+    public LayerMask ghostMask;
 
     bool m_IsPlayerInRange;
 
@@ -17,9 +17,12 @@ public class ObserverGargoyle : MonoBehaviour
         {
             m_IsPlayerInRange = true;
 
-            foreach (GhostStateMachine ghost in ghostList)
+            Collider[] ghosts = Physics.OverlapSphere(transform.position, radiusNoise, ghostMask);
+            foreach (Collider ghost in ghosts)
             {
-                ghost.ChangeState(GhostStateMachine.state.ChaseIndiscriminate, player);
+                GhostStateMachine ghostState = ghost.gameObject.GetComponent<GhostStateMachine>();
+                ghostState.wait();
+                ghostState.ChangeToInvestigation(transform.position);
             }
         }
     }
@@ -29,6 +32,14 @@ public class ObserverGargoyle : MonoBehaviour
         if (other.transform == player)
         {
             m_IsPlayerInRange = false;
+
+            Collider[] ghosts = Physics.OverlapSphere(transform.position, radiusNoise, ghostMask);
+            foreach (Collider ghost in ghosts)
+            {
+                GhostStateMachine ghostState = ghost.gameObject.GetComponent<GhostStateMachine>();
+                ghostState.wait();
+                ghostState.normal();
+            }
         }
     }
 
@@ -49,5 +60,10 @@ public class ObserverGargoyle : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, radiusNoise);
     }
 }

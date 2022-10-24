@@ -192,4 +192,12 @@ public class GhostStateMachine : MovingEntity
     public void rage(Transform destination) {
         ChangeState(state.ChaseIndiscriminate, destination);
     }
+
+    public void wait() {
+        ChangeState(state.Wait);
+    }
+
+    public void normal() {
+        ChangeState(state.Normal);
+    }
 }
