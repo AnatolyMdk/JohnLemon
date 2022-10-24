@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1667998709261404206}
   m_Layer: 0
   m_Name: Gargoyle
-  m_TagString: Untagged
+  m_TagString: Gargoyle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,3 +248,4 @@ MonoBehaviour:
   player: {fileID: 0}
   gameEnding: {fileID: 0}
   gameTime: {fileID: 0}
+  ghostList: []

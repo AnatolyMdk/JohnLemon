@@ -190,4 +190,8 @@ public class GhostStateMachine : MovingEntity
     {
         Gizmos.DrawWireSphere(transform.position, maxChaseDistance);
     }
+
+    public void rage(Transform destination) {
+        ChangeState(state.ChaseIndiscriminate, destination);
+    }
 }
