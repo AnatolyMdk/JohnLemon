@@ -43,6 +43,32 @@ public class GhostStateMachine : MovingEntity
         }
     }
 
+    void ChangeState(state nextState)
+    {
+        Debug.Log(currentState + "->" + nextState);
+        currentState = nextState;
+    }
+
+    void ChangeState(state nextState, float s)
+    {
+        Debug.Log(currentState + "->" + nextState);
+        secondsWaiting = s;
+        currentState = nextState;
+    }
+    public void ChangeState(state nextState, Transform destination)
+    {
+        Debug.Log(currentState + "->" + nextState);
+        currentTarget = destination;
+        currentState = nextState;
+    }
+
+    public void ChangeToInvestigation(Vector3 iposition)
+    {
+        Debug.Log(currentState + "->" + state.Investigation);
+        investigationPosition = iposition;
+        currentState = state.Investigation;
+    }
+
     IEnumerator Normal ()
     {
         renderer.material = whiteGhost;
@@ -149,32 +175,6 @@ public class GhostStateMachine : MovingEntity
         }
     }
 
-    void ChangeState(state nextState)
-    {
-        Debug.Log(currentState + "->" + nextState);
-        currentState = nextState;
-    }
-
-    void ChangeState(state nextState, float s)
-    {
-        Debug.Log(currentState + "->" + nextState);
-        secondsWaiting = s;
-        currentState = nextState;
-    }
-    public void ChangeState(state nextState, Transform destination)
-    {
-        Debug.Log(currentState + "->" + nextState);
-        currentTarget = destination;
-        currentState = nextState;
-    }
-
-    public void ChangeToInvestigation(Vector3 iposition)
-    {
-        Debug.Log(currentState + "->" + state.Investigation);
-        investigationPosition = iposition;
-        currentState = state.Investigation;
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -194,7 +194,6 @@ public class GhostStateMachine : MovingEntity
     }
 
     public void wait() {
-        secondsWaiting = 3f;
         ChangeState(state.Wait);
     }
 
