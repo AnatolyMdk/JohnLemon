@@ -25,6 +25,12 @@ public class Dijkstra : MonoBehaviour
 
     private void Start()
     {
+        CalculateGrid();
+        CalculateNeighbours();
+    }
+
+    void CalculateGrid()
+    {
         nNodesX = Convert.ToInt32(SizeGrid.x / SizeNode.x);
         nNodesZ = Convert.ToInt32(SizeGrid.z / SizeNode.z);
         grid = new Node[nNodesX, nNodesZ];
@@ -39,7 +45,9 @@ public class Dijkstra : MonoBehaviour
                 grid[i, j] = new Node(pos, walkable);
             }
         }
-
+    }
+    void CalculateNeighbours()
+    {
         for (int i = 0; i < grid.GetLength(0); i++)
         {
             for (int j = 0; j < grid.GetLength(1); j++)
@@ -60,7 +68,7 @@ public class Dijkstra : MonoBehaviour
                 }
                 // Debug.Log("Node [" + i + ", " + j + "] have " + grid[i, j].neighbours.Count + " neighbours.");
             }
-        }
+        } 
     }
 
 
@@ -147,6 +155,7 @@ public class Dijkstra : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (dontShowGizmos) return;
+        CalculateGrid();
         if (algorithm)
         {
             path = Algorithm(initialPos.position, finalPos.position);

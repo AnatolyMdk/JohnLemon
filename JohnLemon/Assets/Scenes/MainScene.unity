@@ -2876,14 +2876,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8887620e40cb154b954795b829359c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterGrid: {x: -18, y: 0.5, z: 7}
-  SizeGrid: {x: 110, y: 1, z: 45}
+  CenterGrid: {x: -16.7, y: 0, z: 4.95}
+  SizeGrid: {x: 97.4, y: 1, z: 45}
   SizeNode: {x: 1, y: 1, z: 1}
-  SphereRadiusWallDetector: 0
+  SphereRadiusWallDetector: 0.3
   WallLayer:
     serializedVersion: 2
     m_Bits: 64
-  dontShowGizmos: 1
+  dontShowGizmos: 0
   initialPos: {fileID: 6925745739663848697}
   finalPos: {fileID: 2008973354732098957}
   algorithm: 0
