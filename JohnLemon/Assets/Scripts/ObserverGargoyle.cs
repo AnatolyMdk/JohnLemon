@@ -13,7 +13,7 @@ public class ObserverGargoyle : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !Alarma.alarma_Activada)
         {
             m_IsPlayerInRange = true;
 
@@ -29,7 +29,7 @@ public class ObserverGargoyle : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.transform == player)
+        if (other.transform == player && !Alarma.alarma_Activada)
         {
             m_IsPlayerInRange = false;
 

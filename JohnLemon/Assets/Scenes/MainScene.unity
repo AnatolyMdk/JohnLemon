@@ -2883,7 +2883,7 @@ MonoBehaviour:
   WallLayer:
     serializedVersion: 2
     m_Bits: 64
-  dontShowGizmos: 0
+  dontShowGizmos: 1
   initialPos: {fileID: 6925745739663848697}
   finalPos: {fileID: 2008973354732098957}
   algorithm: 0
@@ -5102,9 +5102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6427ba8cabf67f4094bd84616c46dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alarma_s: {fileID: 1558718513}
+  alarma_in_s: {fileID: 1558718514}
   gameTime: {fileID: 704055793}
-  alarma: {fileID: 1558718513}
-  alarma_in: {fileID: 1558718514}
   player: {fileID: 6077229646317852079}
 --- !u!4 &1558718512
 Transform:
@@ -5130,7 +5130,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 60bd4b3af6079414eb993efae61b827f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ba9701fd79a38fa40820b6a392ffce01, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5226,7 +5226,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 864bccaa8dde9b84b91e6115ffc9364c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 28d310f79753c944a8a20d5bf8348ff1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
