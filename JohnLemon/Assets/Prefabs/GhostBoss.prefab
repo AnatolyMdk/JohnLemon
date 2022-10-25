@@ -644,8 +644,10 @@ MonoBehaviour:
   yellowGhost: {fileID: 0}
   renderer: {fileID: 0}
   Pathfinder: {fileID: 0}
-  maxChaseDistance: 10
-  Waypoints: []
+  maxChaseDistance: 15
+  Waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5863192054190611860
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +987,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4953394414445174501, guid: 8a6f7024e2eb90140bdf570ef653bac8,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953394414445174501, guid: 8a6f7024e2eb90140bdf570ef653bac8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953394414445174501, guid: 8a6f7024e2eb90140bdf570ef653bac8,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1033,11 +1045,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1663644928278714035, guid: 8a6f7024e2eb90140bdf570ef653bac8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8a6f7024e2eb90140bdf570ef653bac8, type: 3}
+--- !u!1 &7497166902168839598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4903280789943914309, guid: 8a6f7024e2eb90140bdf570ef653bac8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3170739150400547563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7547267221297624078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4953394414445174501, guid: 8a6f7024e2eb90140bdf570ef653bac8,
     type: 3}
   m_PrefabInstance: {fileID: 3170739150400547563}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4534314179803652358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497166902168839598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db3faf0f8c653942b1c332e7816ac44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  gameEnding: {fileID: 0}
+  m_IsPlayerInRange: 0
+  radiusNoise: 15
+  ghostMask:
+    serializedVersion: 2
+    m_Bits: 8

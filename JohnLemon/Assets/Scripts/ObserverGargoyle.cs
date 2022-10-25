@@ -21,7 +21,7 @@ public class ObserverGargoyle : MonoBehaviour
             foreach (Collider ghost in ghosts)
             {
                 GhostStateMachine ghostState = ghost.gameObject.GetComponent<GhostStateMachine>();
-                ghostState.wait();
+                //ghostState.wait();
                 ghostState.ChangeToInvestigation(transform.position);
             }
         }
@@ -37,7 +37,7 @@ public class ObserverGargoyle : MonoBehaviour
             foreach (Collider ghost in ghosts)
             {
                 GhostStateMachine ghostState = ghost.gameObject.GetComponent<GhostStateMachine>();
-                ghostState.wait();
+                //ghostState.wait();
                 ghostState.normal();
             }
         }
