@@ -6,7 +6,7 @@ public class Observer : MonoBehaviour
 {
     public Transform player;
     public GameEnding gameEnding;
-    public bool m_IsPlayerInRange;
+    private bool m_IsPlayerInRange;
 
     public float radiusNoise;
     public LayerMask ghostMask;

@@ -170,9 +170,11 @@ public class GhostStateMachine : MovingEntity
 
     public void ChangeToInvestigation(Vector3 iposition)
     {
-        Debug.Log(currentState + "->" + state.Investigation);
-        investigationPosition = iposition;
-        currentState = state.Investigation;
+        if(currentState != state.Chase || currentState != state.ChaseIndiscriminate) {
+            Debug.Log(currentState + "->" + state.Investigation);
+            investigationPosition = iposition;
+            currentState = state.Investigation;
+        }
     }
 
     void OnTriggerEnter(Collider other)
