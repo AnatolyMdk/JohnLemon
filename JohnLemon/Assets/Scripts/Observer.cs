@@ -6,8 +6,10 @@ public class Observer : MonoBehaviour
 {
     public Transform player;
     public GameEnding gameEnding;
+    private bool m_IsPlayerInRange;
 
-    bool m_IsPlayerInRange;
+    public float radiusNoise;
+    public LayerMask ghostMask;
 
     void OnTriggerEnter (Collider other)
     {
@@ -37,9 +39,24 @@ public class Observer : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player)
                 {
-                    gameEnding.CaughtPlayer ();
+                    if(transform.parent.tag != "Boss") {
+                        gameEnding.CaughtPlayer ();
+                    } else {
+                        Collider[] ghosts = Physics.OverlapSphere(transform.position, radiusNoise, ghostMask);
+                        foreach (Collider ghost in ghosts) {
+                            GhostStateMachine ghostState = ghost.gameObject.GetComponent<GhostStateMachine>();
+                            //ghostState.wait();
+                            ghostState.rage(player.transform);
+                        }
+                    }
                 }
             }
         }
     }
+    
+    /*
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, radiusNoise);
+    }*/
 }

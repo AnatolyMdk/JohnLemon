@@ -6,11 +6,13 @@ public class BranchState : MonoBehaviour
 {
     public float radiusNoise;
     public LayerMask ghostsMask;
+    public AudioSource hit;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            hit.Play();
             Collider[] ghosts = Physics.OverlapSphere(transform.position, radiusNoise, ghostsMask);
             foreach(Collider ghost in ghosts)
             {

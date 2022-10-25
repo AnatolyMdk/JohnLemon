@@ -13,7 +13,7 @@ public class ObserverGargoyle : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !Alarma.alarma_Activada)
         {
             m_IsPlayerInRange = true;
 
@@ -21,7 +21,7 @@ public class ObserverGargoyle : MonoBehaviour
             foreach (Collider ghost in ghosts)
             {
                 GhostStateMachine ghostState = ghost.gameObject.GetComponent<GhostStateMachine>();
-                ghostState.wait();
+                //ghostState.wait();
                 ghostState.ChangeToInvestigation(transform.position);
             }
         }
@@ -29,7 +29,7 @@ public class ObserverGargoyle : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.transform == player)
+        if (other.transform == player && !Alarma.alarma_Activada)
         {
             m_IsPlayerInRange = false;
 
@@ -37,7 +37,7 @@ public class ObserverGargoyle : MonoBehaviour
             foreach (Collider ghost in ghosts)
             {
                 GhostStateMachine ghostState = ghost.gameObject.GetComponent<GhostStateMachine>();
-                ghostState.wait();
+                //ghostState.wait();
                 ghostState.normal();
             }
         }

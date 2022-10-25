@@ -43,32 +43,6 @@ public class GhostStateMachine : MovingEntity
         }
     }
 
-    void ChangeState(state nextState)
-    {
-        Debug.Log(currentState + "->" + nextState);
-        currentState = nextState;
-    }
-
-    void ChangeState(state nextState, float s)
-    {
-        Debug.Log(currentState + "->" + nextState);
-        secondsWaiting = s;
-        currentState = nextState;
-    }
-    public void ChangeState(state nextState, Transform destination)
-    {
-        Debug.Log(currentState + "->" + nextState);
-        currentTarget = destination;
-        currentState = nextState;
-    }
-
-    public void ChangeToInvestigation(Vector3 iposition)
-    {
-        Debug.Log(currentState + "->" + state.Investigation);
-        investigationPosition = iposition;
-        currentState = state.Investigation;
-    }
-
     IEnumerator Normal ()
     {
         renderer.material = whiteGhost;
@@ -172,6 +146,34 @@ public class GhostStateMachine : MovingEntity
 
             prevCurrentTarget = currentTarget.position;
             yield return 0;
+        }
+    }
+
+    void ChangeState(state nextState)
+    {
+        Debug.Log(currentState + "->" + nextState);
+        currentState = nextState;
+    }
+
+    void ChangeState(state nextState, float s)
+    {
+        Debug.Log(currentState + "->" + nextState);
+        secondsWaiting = s;
+        currentState = nextState;
+    }
+    public void ChangeState(state nextState, Transform destination)
+    {
+        Debug.Log(currentState + "->" + nextState);
+        currentTarget = destination;
+        currentState = nextState;
+    }
+
+    public void ChangeToInvestigation(Vector3 iposition)
+    {
+        if(currentState != state.Chase || currentState != state.ChaseIndiscriminate) {
+            Debug.Log(currentState + "->" + state.Investigation);
+            investigationPosition = iposition;
+            currentState = state.Investigation;
         }
     }
 
